@@ -146,11 +146,12 @@ export const Blogs: React.FC = () => {
 
       // ... inside handleSubmit ...
 
-      if (formData.isPublished) {
+      // if (formData.isPublished) {
         // Calculate the final slug exactly as you did above
         const finalSlug = editingBlog ? editingBlog.slug : slug;
 
-        await fetch("https://thankful-sea-01c7a0b00.4.azurestaticapps.net/api/revalidate", {
+        // await fetch("https://thankful-sea-01c7a0b00.4.azurestaticapps.net/api/revalidate", {
+        await fetch("https://personal-portfolio-pi-flax.vercel.app/api/revalidate", {
           method: "POST",
           headers: {
             "Content-Type": "application/json", // <--- ADD THIS
@@ -161,7 +162,7 @@ export const Blogs: React.FC = () => {
             slug: finalSlug
           }),
         });
-      }
+      // }
 
 
       // if (formData.isPublished) {

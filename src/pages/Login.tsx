@@ -24,7 +24,7 @@ export const Login: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const success = await login({ username, password });
+      const success = await login({ username: username.trim(), password: password.trim() });
       if (success) {
         toast.success('Successfully logged in!');
       } else {
@@ -32,7 +32,7 @@ export const Login: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Login error:', error);
-      
+
       if (error.message.includes('Unable to connect to server')) {
         toast.error('Backend server is not running. Using demo mode.');
         // The demo login will be handled in AuthContext
